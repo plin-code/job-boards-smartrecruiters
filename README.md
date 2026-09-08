@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/plin-code/job-boards-smartrecruiters/main/art/banner.png" alt="Job Boards SmartRecruiters">
+</p>
+
 # Job Boards SmartRecruiters
 
 SmartRecruiters connector for the [plin-code](https://github.com/plin-code) job boards family. It reads the public postings API, which needs no credentials but is paged:
