@@ -1,0 +1,98 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "plin-code/job-boards-smartrecruiters",
+    "description": "SmartRecruiters job board connector for the plin-code job-boards family",
+    "keywords": [
+        "PlinCode",
+        "plin-code",
+        "job-boards",
+        "job-board",
+        "ats",
+        "smartrecruiters",
+        "laravel"
+    ],
+    "homepage": "https://github.com/plin-code/job-boards-smartrecruiters",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniele Barbaro",
+            "email": "barbaro.daniele@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "guzzlehttp/guzzle": "^7.8",
+        "illuminate/contracts": "^12.0||^13.0",
+        "plin-code/job-boards-core": "^0.2",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "psr/log": "^2.0||^3.0",
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0||^11.0",
+        "pestphp/pest": "^3.0||^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0||^4.0",
+        "phpstan/extension-installer": "^1.4"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/plin-code/job-boards-core.git"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PlinCode\\JobBoards\\SmartRecruiters\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PlinCode\\JobBoards\\SmartRecruiters\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@prepare"
+        ],
+        "prepare": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ],
+        "lint": [
+            "vendor/bin/pint --parallel"
+        ],
+        "lint:check": [
+            "vendor/bin/pint --parallel --test"
+        ],
+        "analyse": [
+            "vendor/bin/phpstan analyse"
+        ],
+        "test:unit": [
+            "vendor/bin/pest"
+        ],
+        "test": [
+            "@analyse",
+            "@lint:check",
+            "@test:unit"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PlinCode\\JobBoards\\SmartRecruiters\\SmartRecruitersServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

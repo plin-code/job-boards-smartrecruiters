@@ -1,0 +1,12 @@
+parameters:
+    level: 10
+    paths:
+        - src
+        - config
+        - tests
+    tmpDir: build/phpstan
+
+    # This package has no Laravel application around it, so larastan cannot infer
+    # where config files live. Tell it, or every env() call is flagged.
+    configDirectories:
+        - config
